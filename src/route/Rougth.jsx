@@ -17,11 +17,11 @@ import LoginPage from "../Component/page/LoginPage";
             element:<Home/>
         },
         {
-            path:'/singUp',
+            path:'singUp',
             element:<SingUp/>
         },
         {
-            path:'/login',
+            path:'login',
             element:<LoginPage/>
         }
       ]

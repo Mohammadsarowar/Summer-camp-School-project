@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-
+import { AuthContext } from '../../route/AuthProvider';
+import {FaGoogle } from "react-icons/fa";
 const LoginPage = () => {
+    const {SingIn} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    SingIn(data.email, data.password)
+    .then(result=>{
+        console.log(result);
+    })
   };
 
   return (
@@ -27,7 +32,9 @@ const LoginPage = () => {
 
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
         </form>
+          <div className='text-center'><button className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div>
       </div>
+    
     </div>
   );
 };

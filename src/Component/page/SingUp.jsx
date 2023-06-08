@@ -1,14 +1,27 @@
-import React from "react";
-import { useForm } from "react-hook-form";
 
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../route/AuthProvider";
+import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+  
 const SingUp = () => {
+   const {createUser} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data.email,data.password)
+    .then(result=>{
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+    })
+    
+  };
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
     <div className="bg-white rounded shadow p-8 w-96">
@@ -40,9 +53,12 @@ const SingUp = () => {
             <input {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must have at least 6 characters' } })} type="password" className="border border-gray-300 px-4 py-2 rounded w-full" />
             {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
           </div>
-
+          <label className="block mb-2">Already have an account <Link to='/login' className="link link-primary" to='login'>Login</Link></label>
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Signup</button>
         </form>
+        <div className=" text-center">
+        <div className='text-center'><button className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div></div>
+        
       </div>
     </div>
 

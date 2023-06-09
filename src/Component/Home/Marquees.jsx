@@ -12,6 +12,7 @@ const Marquees = () => {
     <img className='mx-10' src='https://themeadapt.com/tm/eduvalt/assets/img/brand/brand07.png'></img>
     <img className='mx-10' src='https://themeadapt.com/tm/eduvalt/assets/img/brand/brand03.png'></img>
   </Marquee>
+  <div className='divider'/>
         </div>
     );
 };

@@ -13,7 +13,7 @@ const Banner = () => {
             <div>
                 <img src='https://images.pexels.com/photos/22185/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600' />
             </div>
-            <div className=''>
+            <div>
                 <img src='https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg?auto=compress&cs=tinysrgb&w=600' />
             </div>
             

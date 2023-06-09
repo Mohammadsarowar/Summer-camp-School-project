@@ -2,16 +2,28 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../route/AuthProvider';
 import {FaGoogle } from "react-icons/fa";
+import Swal from 'sweetalert2';
 const LoginPage = () => {
-    const {SingIn} = useContext(AuthContext)
+    const {SingIn,googleSignIn} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     SingIn(data.email, data.password)
     .then(result=>{
         console.log(result);
+        if(result){
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Success',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
     })
   };
+  const googleLogin = () =>{
+    googleSignIn()
+  }
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -32,7 +44,7 @@ const LoginPage = () => {
 
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
         </form>
-          <div className='text-center'><button className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div>
+          <div className='text-center'><button onClick={googleLogin} className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div>
       </div>
     
     </div>

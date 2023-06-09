@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { BeakerIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
+import { AuthContext } from "../../../route/AuthProvider";
 const Nabvar = () => {
+  const {user } = useContext(AuthContext)
   return (
     <div className="navbar bg-base-200">
       <div className="navbar-start">
@@ -82,13 +84,33 @@ const Nabvar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn">
-          <BriefcaseIcon className="h-6 w-6 text-blue-500" />
+        <Link className="">
+        <button className="btn btn-outline btn-primary">Primary</button>
         </Link>
 
-        <Link className="btn">
+        { user ? <Link to='/login' className="btn">
           <UserIcon className="h-6 w-6 text-blue-500" />
-        </Link>
+        </Link>:<>
+        <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+ 
+
+        </>}
       </div>
     </div>
   );

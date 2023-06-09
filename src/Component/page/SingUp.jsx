@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
   
 const SingUp = () => {
-   const {createUser} = useContext(AuthContext)
+   const {createUser,googleSignIn} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -20,8 +20,10 @@ const SingUp = () => {
         console.log(loggedUser);
 
     })
-    
   };
+  const googleLogin = () =>{
+    googleSignIn()
+  }
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
     <div className="bg-white rounded shadow p-8 w-96">
@@ -57,7 +59,7 @@ const SingUp = () => {
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Signup</button>
         </form>
         <div className=" text-center">
-        <div className='text-center'><button className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div></div>
+        <div className='text-center'><button onClick={googleLogin} className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div></div>
         
       </div>
     </div>

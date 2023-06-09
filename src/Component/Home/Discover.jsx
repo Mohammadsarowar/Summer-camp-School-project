@@ -2,7 +2,7 @@ import React from 'react';
 
 const Discover = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero my-20">
   <div className="hero-content flex-col lg:flex-row w-1/1 relative">
   <div className=''>
   <img className=' absolute left-[-0] bottom-0 w-44 rounded-lg border-8 border-indigo-500 ' src='https://images.pexels.com/photos/4626345/pexels-photo-4626345.jpeg?auto=compress&cs=tinysrgb&w=600' ></img>

@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../route/AuthProvider';
-import {FaGoogle } from "react-icons/fa";
+
 import Swal from 'sweetalert2';
+import Social from '../../Share/social';
+import { Link } from 'react-router-dom';
 const LoginPage = () => {
-    const {SingIn,googleSignIn} = useContext(AuthContext)
+    const {SingIn} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
@@ -21,10 +23,6 @@ const LoginPage = () => {
         }
     })
   };
-  const googleLogin = () =>{
-    googleSignIn()
-  }
-
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white rounded shadow p-8 w-80">
@@ -41,10 +39,11 @@ const LoginPage = () => {
             <input {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must have at least 6 characters' } })} type="password" className="border border-gray-300 px-4 py-2 rounded w-full" />
             {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
           </div>
-
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+<samp>New Hear?<Link className='link link-secondary' to='/singUp'>create an account</Link></samp>
+<br/>
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded ">Login</button>
         </form>
-          <div className='text-center'><button onClick={googleLogin} className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div>
+         <Social/>
       </div>
     
     </div>

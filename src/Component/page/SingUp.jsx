@@ -3,8 +3,9 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../route/AuthProvider";
 import { Link, Navigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+
 import Swal from "sweetalert2";
+import Social from "../../Share/social";
   
 const SingUp = () => {
    const {createUser,googleSignIn,updateUserProfile} = useContext(AuthContext)
@@ -32,7 +33,8 @@ const SingUp = () => {
           })
           .then(res => res.json())
           .then(data => {
-            if(data.insertedId){             
+            if(data.insertedId){  
+              reset()           
           Swal.fire({
             icon: 'success',
             title: 'Your work has been saved',
@@ -42,15 +44,12 @@ const SingUp = () => {
           Navigate('/')
             }
           })
-          
+           
         })
 
     })
   };
-  const googleLogin = () =>{
-    googleSignIn()
-
-  }
+ 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
     <div className="bg-white rounded shadow p-8 w-96">
@@ -82,11 +81,10 @@ const SingUp = () => {
             <input {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must have at least 6 characters' } })} type="password" className="border border-gray-300 px-4 py-2 rounded w-full" />
             {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
           </div>
-          <label className="block mb-2">Already have an account <Link to='/login' className="link link-primary" to='login'>Login</Link></label>
+          <samp className="block mb-2">Already have an account <Link to='/login' className="link link-secondary">Login</Link></samp>
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Signup</button>
         </form>
-        <div className=" text-center">
-        <div className='text-center'><button onClick={googleLogin} className='btn rounded-full hover:bg-blue-500'><FaGoogle className=' text-lg'/></button></div></div>
+      <Social/>
         
       </div>
     </div>

@@ -34,7 +34,7 @@ const SingUp = () => {
           .then(res => res.json())
           .then(data => {
             if(data.insertedId){  
-              reset()           
+         resizeTo()       
           Swal.fire({
             icon: 'success',
             title: 'Your work has been saved',

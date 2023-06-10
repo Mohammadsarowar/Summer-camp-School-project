@@ -10,6 +10,7 @@ import Dashboard from "../Component/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
 import AdminRoute from "./AdminRoute";
+import ManageUsers from "../Component/Dashboard/ManageUsers/ManageUsers";
 
   
   const router = createBrowserRouter([
@@ -41,8 +42,12 @@ import AdminRoute from "./AdminRoute";
       element:<PrivateRoute><Dashboard/></PrivateRoute>,
       children:[
         {
-          path:'ManageClasses',
+          path:'manageClasses',
           element:<ManageClasses/>
+        },
+        {
+          path:'manageUsers',
+          element:<ManageUsers/>
         }
       ]
       

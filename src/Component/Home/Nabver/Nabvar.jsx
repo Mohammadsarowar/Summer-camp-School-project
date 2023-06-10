@@ -4,7 +4,10 @@ import { NavLink } from "react-router-dom";
 import { BeakerIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../route/AuthProvider";
 const Nabvar = () => {
-  const {user } = useContext(AuthContext)
+  const {user,logOut } = useContext(AuthContext)
+  const singOut = () =>{
+    return logOut()
+  }
   return (
     <div className="navbar bg-base-200">
       <div className="navbar-start">
@@ -101,17 +104,15 @@ const Nabvar = () => {
       </div>
       <div className="navbar-end">
       <NavLink
-  to="/"
+  to="/dashboard"
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
   }
 >
-<button className="btn btn-outline btn-primary">Primary</button>
+<button className="btn btn-outline btn-primary">Dashboard</button>
 </NavLink>
 
-        { user ? <Link to='/login' className="btn">
-          <UserIcon className="h-6 w-6 text-blue-500" />
-        </Link>:<>
+        { user ?<>
         <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -125,13 +126,14 @@ const Nabvar = () => {
             <span className="badge">New</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><button onClick={singOut}>Logout</button></li>
       </ul>
     </div>
  
 
-        </>}
+        </>:<Link to='/login' className="btn">
+          <UserIcon className="h-6 w-6 text-blue-500" />
+        </Link>}
       </div>
     </div>
   );

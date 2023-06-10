@@ -6,6 +6,10 @@ import Home from "../Component/Home/Home";
 import SingUp from "../Component/page/SingUp";
 import LoginPage from "../Component/page/LoginPage";
 import ShowClass from "../Layout/ShowClass";
+import Dashboard from "../Component/Dashboard/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
+import AdminRoute from "./AdminRoute";
 
   
   const router = createBrowserRouter([
@@ -29,7 +33,19 @@ import ShowClass from "../Layout/ShowClass";
           path:'HeaderClass',
           element:<ShowClass/>
         }
-      ]
+      ],
+      
     },
+    {
+      path:'/dashboard',
+      element:<PrivateRoute><Dashboard/></PrivateRoute>,
+      children:[
+        {
+          path:'ManageClasses',
+          element:<ManageClasses/>
+        }
+      ]
+      
+    }
   ]);
   export default router

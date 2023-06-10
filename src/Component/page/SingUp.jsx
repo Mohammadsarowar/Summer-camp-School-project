@@ -2,11 +2,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../route/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
   
 const SingUp = () => {
-   const {createUser,googleSignIn} = useContext(AuthContext)
+   const {createUser,googleSignIn,updateUserProfile} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -18,11 +19,37 @@ const SingUp = () => {
     .then(result=>{
         const loggedUser = result.user;
         console.log(loggedUser);
+        
+        updateUserProfile(data.name, data.photoURl)
+        .then(()=>{
+          const saveUser = {name:data.name, email:data.email, photoURl:data.photoURl}
+          fetch('http://localhost:5000/users',{
+            method:'POST',
+            headers:{
+              'content-type' : 'application/json'
+            },
+            body:JSON.stringify(saveUser)
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.insertedId){             
+          Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          Navigate('/')
+            }
+          })
+          
+        })
 
     })
   };
   const googleLogin = () =>{
     googleSignIn()
+
   }
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -36,8 +63,8 @@ const SingUp = () => {
         </div>
         <div className="mb-4">
           <label className="block mb-2">Photo url</label>
-          <input {...register('name', { required: 'Name is required' })} className="border border-gray-300 px-4 py-2 rounded w-full" />
-          {errors.name && <p className="text-red-500 mt-2">{errors.name.message}</p>}
+          <input {...register('photoURl', { required: 'Photo URL is required' })} className="border border-gray-300 px-4 py-2 rounded w-full" />
+          {errors.photoUrl && <p className="text-red-500 mt-2">{errors.name.message}</p>}
         </div>
         <div className="mb-4">
             <label className="block mb-2">Email</label>

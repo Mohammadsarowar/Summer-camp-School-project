@@ -2,7 +2,7 @@ import React from 'react';
 import { FaShareAlt } from "react-icons/fa";
 const InstructorsCart = ({item}) => {
     const {name,image,course_name} = item
-    console.log(item);
+   
     return (
         <div className=" w-96 mx-auto items-center text-center">
   <figure className="px-10 pt-10">
@@ -10,7 +10,7 @@ const InstructorsCart = ({item}) => {
   </figure>
   <div className="card-body items-start ">
    
-    <p className='font-serif'>{course_name}</p>
+    <p className='font-serif'>{course_name}</p> 
     <h2 className="card-title font-mono">{name}</h2>
     <div className=" flex gap-20">
       <button className="btn btn-primary">Buy Now</button>

@@ -4,6 +4,7 @@ import Marquee from './Marquees';
 import Discover from './Discover';
 import EnterEmail from '../page/EnterEmail';
 import ShowClass from '../../Layout/ShowClass';
+import ShowInstructor from '../../Share/ShowInstructor';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Marquee/>
             <Discover/>
             <ShowClass/>
+            <ShowInstructor/>
             <EnterEmail/>
         </div>
     );

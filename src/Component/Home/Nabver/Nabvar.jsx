@@ -33,7 +33,7 @@ const Nabvar = () => {
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
+                  isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
                 }
               >
                 Home
@@ -43,20 +43,20 @@ const Nabvar = () => {
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
+                  isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
                 }
               >
-                Home
+              Instructors
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
+                  isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
                 }
               >
-                Home
+                
               </NavLink>
             </li>
           </ul>
@@ -76,17 +76,38 @@ const Nabvar = () => {
 </NavLink>
           </li>
           <li>
-            <Link to="/">Instructors</Link>
+          <NavLink
+  to="/HeaderInstructors"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
+  }
+>
+ Instructors
+</NavLink>
+           
           </li>
           <li>
-            <Link to="/">Classes</Link>
+          <NavLink
+  to="/HeaderClass"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
+  }
+>
+ Classes
+</NavLink>
+          
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="">
-        <button className="btn btn-outline btn-primary">Primary</button>
-        </Link>
+      <NavLink
+  to="/"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
+  }
+>
+<button className="btn btn-outline btn-primary">Primary</button>
+</NavLink>
 
         { user ? <Link to='/login' className="btn">
           <UserIcon className="h-6 w-6 text-blue-500" />

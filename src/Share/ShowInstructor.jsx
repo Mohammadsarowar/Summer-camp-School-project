@@ -13,7 +13,7 @@ const ShowInstructor = () => {
         });
     }, []);
     return (
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
             {
                 data.slice(0, 6).map((item) =>(<InstructorsCart key={item._id} item={item}></InstructorsCart>) )
             }

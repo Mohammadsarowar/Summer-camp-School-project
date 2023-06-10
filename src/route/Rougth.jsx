@@ -5,6 +5,7 @@ import Main from "../Component/Home/Main/Main";
 import Home from "../Component/Home/Home";
 import SingUp from "../Component/page/SingUp";
 import LoginPage from "../Component/page/LoginPage";
+import ShowClass from "../Layout/ShowClass";
 
   
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ import LoginPage from "../Component/page/LoginPage";
         {
             path:'/login',
             element:<LoginPage/>
+        },
+        {
+          path:'HeaderClass',
+          element:<ShowClass/>
         }
       ]
     },

@@ -3,16 +3,21 @@ import { FaAtlas, FaRegClock, FaUserNurse, FaDollarSign } from "react-icons/fa";
 const ShowClass = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAll,setShow] = useState(false);
+  const handleShowAll = () =>{
+        setShow(true)
+  }
   useEffect(() => {
     fetch("http://localhost:5000/class")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setLoading(false);
+      
       });
   }, []);
 
-  return (
+  return [(
     <>
       <div>
         <h2 className=" text-5xl text-center my-10">
@@ -24,8 +29,8 @@ const ShowClass = () => {
           Courses
         </h2>
       </div>
-      <div className=" grid grid-cols-3 gap-5">
-        {data.slice(0, 6).map((item) => (
+      <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+        {data.slice(0,showAll ?50 :6).map((item) => (
           <div key={item._id} className="card w-96 glass mx-auto">
             <figure>
               <img className="" src={item.Image} alt="Class!" />
@@ -101,8 +106,13 @@ const ShowClass = () => {
           </div>
         ))}
       </div>
+      <div className="mx-auto text-center my-5">  {
+            !showAll && (
+                <button onClick={handleShowAll} className='btn btn-outline btn-primary'>Show All</button>
+            )}</div>
+    
     </>
-  );
+  )];
 };
 
 export default ShowClass;

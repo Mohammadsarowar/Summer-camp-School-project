@@ -1,14 +1,16 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Nabvar from "../../Home/Nabver/Nabvar";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
     //TODO: ...
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin()
     const isInstructor = false
   return (
     <>
-        
+
     <Nabvar/>
     <div className="drawer drawer-mobile ">
     

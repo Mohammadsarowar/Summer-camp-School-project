@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../route/AuthProvider';
 
 import Swal from 'sweetalert2';
 import Social from '../../Share/social';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Share/useTitel';
 const LoginPage = () => {
+  useTitle('login')
     const {SingIn} = useContext(AuthContext)
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [error,setError] = useState('')
 
   const onSubmit = (data) => {
     SingIn(data.email, data.password)
@@ -22,6 +25,11 @@ const LoginPage = () => {
           })
         }
     })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setError(errorMessage);
+    });
   };
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -39,6 +47,8 @@ const LoginPage = () => {
             <input {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must have at least 6 characters' } })} type="password" className="border border-gray-300 px-4 py-2 rounded w-full" />
             {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
           </div>
+          <span className='text-red-700'>{error}</span>
+          <br/>
 <samp>New Hear?<Link className='link link-secondary' to='/singUp'>create an account</Link></samp>
 <br/>
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded ">Login</button>

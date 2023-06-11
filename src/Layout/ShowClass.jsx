@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaAtlas, FaRegClock, FaUserNurse, FaDollarSign } from "react-icons/fa";
+import useTitle from "../Share/useTitel";
+import { Link } from "react-router-dom";
 const ShowClass = () => {
+  useTitle('All Class')
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showAll,setShow] = useState(false);
@@ -8,7 +11,7 @@ const ShowClass = () => {
         setShow(true)
   }
   useEffect(() => {
-    fetch("http://localhost:5000/class")
+    fetch("https://summer-camp-school-server-nu.vercel.app/class")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -20,7 +23,7 @@ const ShowClass = () => {
   return [(
     <>
       <div>
-        <h2 className=" text-5xl text-center my-10">
+        <h2 className="font-sans text-5xl text-center my-10">
           Our{" "}
           <span className="italic border-b-4 border-r-blue-700 text-blue-700 bold">
             {" "}
@@ -100,7 +103,7 @@ const ShowClass = () => {
         </div>
          <h2 className="ml-2 text-lg hover:text-blue-600 font-sans">{item.InstructorName}</h2>
       </div>
-                <button className="btn btn-primary">Learn now!</button>
+                <Link to='dashboard/myClass' className="btn btn-primary">Class Booking</Link>
               </div>
             </div>
           </div>

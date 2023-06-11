@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { BeakerIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../route/AuthProvider";
+import DarkMood from "../../../Share/DarkMood";
 const Nabvar = () => {
   const {user,logOut } = useContext(AuthContext)
   const singOut = () =>{
@@ -36,7 +37,7 @@ const Nabvar = () => {
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
+                  isPending ? "pending bg-blue-700" : isActive ? "active bg-blue-700" : ""
                 }
               >
                 Home
@@ -64,7 +65,8 @@ const Nabvar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        
+        <Link to='/' className="btn"><img className="w-40" src='https://themeadapt.com/tm/eduvalt/assets/img/logo/logo.png'></img></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -72,7 +74,7 @@ const Nabvar = () => {
           <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active bg-blue-700 hover:bg-black" : ""
+    isPending ? "pending " : isActive ? "active bg-blue-700 hover:bg-black" : ""
   }
 >
  Home
@@ -103,6 +105,7 @@ const Nabvar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+      <li className="mr-5"><button><DarkMood/></button></li>
       <NavLink
   to="/dashboard"
   className={({ isActive, isPending }) =>
@@ -114,6 +117,7 @@ const Nabvar = () => {
 
         { user ?<>
         <div className="dropdown dropdown-end">
+        
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img src={user?.photoURL} />
@@ -134,6 +138,7 @@ const Nabvar = () => {
         </>:<Link to='/login' className="btn">
           <UserIcon className="h-6 w-6 text-blue-500" />
         </Link>}
+        
       </div>
     </div>
   );

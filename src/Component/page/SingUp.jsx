@@ -6,9 +6,11 @@ import { Link, Navigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import Social from "../../Share/social";
+import useTitle from "../../Share/useTitel";
   
 const SingUp = () => {
-   const {createUser,googleSignIn,updateUserProfile} = useContext(AuthContext)
+  useTitle('SingUp')
+   const {createUser,updateUserProfile} = useContext(AuthContext)
   const {
     register,
     handleSubmit,

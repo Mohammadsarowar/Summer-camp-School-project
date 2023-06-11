@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute";
 import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
 import AdminRoute from "./AdminRoute";
 import ManageUsers from "../Component/Dashboard/ManageUsers/ManageUsers";
+import ShowInstructor from "../Share/ShowInstructor";
+import MyClass from "../Component/Dashboard/StudentDashboard.jsx/MyClass";
 
   
   const router = createBrowserRouter([
@@ -33,7 +35,12 @@ import ManageUsers from "../Component/Dashboard/ManageUsers/ManageUsers";
         {
           path:'HeaderClass',
           element:<ShowClass/>
+        },
+        {
+          path:'/HeaderInstructors',
+          element:<ShowInstructor/>
         }
+
       ],
       
     },
@@ -48,6 +55,10 @@ import ManageUsers from "../Component/Dashboard/ManageUsers/ManageUsers";
         {
           path:'manageUsers',
           element:<ManageUsers/>
+        },
+        {
+          path:'/dashboard/myClass',
+          element:<MyClass/>
         }
       ]
       

@@ -3,13 +3,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import Nabvar from "../../Home/Nabver/Nabvar";
 import useAdmin from "../../hooks/useAdmin";
 import useTitle from "../../../Share/useTitel";
+import useInstructors from "../../hooks/useInstructor";
 
 const Dashboard = () => {
     useTitle('Dashboard')
     //TODO: ...
     // const isAdmin = true;
     const [isAdmin] = useAdmin()
-    const isInstructor = false
+     const [isInstructor] = useInstructors()
+    
   return (
     <>
 
@@ -45,8 +47,9 @@ const Dashboard = () => {
               {/* TODO: */}
             </> }
             {
-                isInstructor ? <><li>hi</li></> : <>
+                isInstructor ? <><li>hi</li></> : <><p>igrdnb</p>
                     {/* TODO: */}
+                    
                 </>
             }
           

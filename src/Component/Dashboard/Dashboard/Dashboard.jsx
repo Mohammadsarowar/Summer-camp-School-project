@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import Nabvar from "../../Home/Nabver/Nabvar";
 import useAdmin from "../../hooks/useAdmin";
 import useTitle from "../../../Share/useTitel";
@@ -47,7 +47,7 @@ const Dashboard = () => {
               {/* TODO: */}
             </> }
             {
-                isInstructor ? <><li>hi</li></> : <><p>igrdnb</p>
+                isInstructor ? <><li><Link to='/dashboard/addClass'>Add Class</Link></li></> : <>
                     {/* TODO: */}
                     
                 </>

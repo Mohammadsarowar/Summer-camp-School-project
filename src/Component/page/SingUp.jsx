@@ -26,7 +26,7 @@ const SingUp = () => {
         updateUserProfile(data.name, data.photoURl)
         .then(()=>{
           const saveUser = {name:data.name, email:data.email, photoURl:data.photoURl}
-          fetch('http://localhost:5000/users',{
+          fetch('https://summer-camp-school-server-nu.vercel.app/users',{
             method:'POST',
             headers:{
               'content-type' : 'application/json'

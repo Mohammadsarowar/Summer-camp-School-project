@@ -13,12 +13,15 @@ import AdminRoute from "./AdminRoute";
 import ManageUsers from "../Component/Dashboard/ManageUsers/ManageUsers";
 import ShowInstructor from "../Share/ShowInstructor";
 import MyClass from "../Component/Dashboard/StudentDashboard.jsx/MyClass";
+import AddClass from "../Component/Dashboard/InstructorsPage/AddClass";
+import NotFoundPage from "../Share/NotFoundPage";
 
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main/>,
+      errorElement:<NotFoundPage/>,
       children:[
         {
             path:'/',
@@ -59,6 +62,10 @@ import MyClass from "../Component/Dashboard/StudentDashboard.jsx/MyClass";
         {
           path:'/dashboard/myClass',
           element:<MyClass/>
+        },
+        {
+          path:'/dashboard/addClass',
+          element:<AddClass/>
         }
       ]
       

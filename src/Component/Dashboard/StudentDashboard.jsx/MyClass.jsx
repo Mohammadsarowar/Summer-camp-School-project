@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const MyClass = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch(
-      "http://localhost:5000/class"
+      "https://summer-camp-school-server-nu.vercel.app/class"
     );
     return res.json();
   });
@@ -22,7 +22,7 @@ const MyClass = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/user/${user._id}`,
+          `https://summer-camp-school-server-nu.vercel.app/user/${user._id}`,
           {
             method: "DELETE",
           }

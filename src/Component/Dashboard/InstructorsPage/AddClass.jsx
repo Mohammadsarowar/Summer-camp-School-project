@@ -10,7 +10,7 @@ const AddClass = () => {
     const saveUser = {Name:data.className, email:data.email, photoURl:data.photoURl}
     // You can perform any logic here, such as sending the form data to a server
      console.log(data);
-     fetch('http://localhost:5000/class',{
+     fetch('https://summer-camp-school-server-nu.vercel.app/class',{
         method:'POST',
         headers:{
           'content-type' : 'application/json'

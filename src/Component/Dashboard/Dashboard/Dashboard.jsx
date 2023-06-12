@@ -43,7 +43,9 @@ const Dashboard = () => {
           </li>
             <li><NavLink to='/dashboard/manageClasses' >Manage Classes</NavLink></li>
         
-            </>:<><li><NavLink to='/dashboard/myClass' >My Classes</NavLink></li>
+            </>:<><li><NavLink to='/dashboard/myClass' >My Classes</NavLink>
+            <NavLink to='/dashboard/myEnrolled' >My Enrolled Classes</NavLink>
+            </li>
               {/* TODO: */}
             </> }
             {

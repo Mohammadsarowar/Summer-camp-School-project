@@ -15,6 +15,7 @@ import ShowInstructor from "../Share/ShowInstructor";
 import MyClass from "../Component/Dashboard/StudentDashboard.jsx/MyClass";
 import AddClass from "../Component/Dashboard/InstructorsPage/AddClass";
 import NotFoundPage from "../Share/NotFoundPage";
+import MyEnrolledClasses from "../Component/Dashboard/StudentDashboard.jsx/MyEnrolledClasses";
 
   
   const router = createBrowserRouter([
@@ -66,6 +67,10 @@ import NotFoundPage from "../Share/NotFoundPage";
         {
           path:'/dashboard/addClass',
           element:<AddClass/>
+        },
+        {
+          path:'/dashboard/myEnrolled',
+          element:<MyEnrolledClasses/>
         }
       ]
       

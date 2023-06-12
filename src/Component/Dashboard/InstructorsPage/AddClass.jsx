@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddClass = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
+    const saveUser = {Name:data.className, email:data.email, photoURl:data.photoURl}
     // You can perform any logic here, such as sending the form data to a server
      console.log(data);
      fetch('http://localhost:5000/class',{
@@ -41,7 +43,7 @@ const AddClass = () => {
         <input
           type="text"
           id="class-name"
-          {...register('className', { required: true })}
+          {...register('Name', { required: true })}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
@@ -53,7 +55,7 @@ const AddClass = () => {
         <input
           type="text"
           id="class-image"
-          {...register('classImage', { required: true })}
+          {...register('Image', { required: true })}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
@@ -65,7 +67,7 @@ const AddClass = () => {
         <input
           type="text"
           id="instructor-name"
-          {...register('instructorName', { required: true })}
+          {...register('InstructorName', { required: true })}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
@@ -89,7 +91,7 @@ const AddClass = () => {
         <input
           type="number"
           id="available-seats"
-          {...register('availableSeats', { required: true })}
+          {...register('AvailableSeats', { required: true })}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>
@@ -101,7 +103,7 @@ const AddClass = () => {
         <input
           type="number"
           id="price"
-          {...register('price', { required: true })}
+          {...register('Price', { required: true })}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         />
       </div>

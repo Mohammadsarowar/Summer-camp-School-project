@@ -20,7 +20,7 @@ const ShowClass = () => {
       });
   }, []);
 
-  return [(
+  return (
     <>
       <div>
         <h2 className="font-sans text-5xl text-center my-10">
@@ -115,7 +115,7 @@ const ShowClass = () => {
             )}</div>
     
     </>
-  )];
+  );
 };
 
 export default ShowClass;

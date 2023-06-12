@@ -16,6 +16,7 @@ import MyClass from "../Component/Dashboard/StudentDashboard.jsx/MyClass";
 import AddClass from "../Component/Dashboard/InstructorsPage/AddClass";
 import NotFoundPage from "../Share/NotFoundPage";
 import MyEnrolledClasses from "../Component/Dashboard/StudentDashboard.jsx/MyEnrolledClasses";
+// import Payment from "../Component/page/Payment/Payment";
 
   
   const router = createBrowserRouter([
@@ -71,7 +72,13 @@ import MyEnrolledClasses from "../Component/Dashboard/StudentDashboard.jsx/MyEnr
         {
           path:'/dashboard/myEnrolled',
           element:<MyEnrolledClasses/>
-        }
+        },
+      //   {
+      //     path:'/dashboard/:id',
+      //     element:<Payment/>,
+      //     loader: ({ params }) =>fetch(`https://summer-camp-school-server-nu.vercel.app/dashboard/${params.id}`),
+      // },
+        
       ]
       
     }

@@ -81,7 +81,7 @@ const MyClass = () => {
                   <br />
                 </td>
                 <td>
-                  <Link className="btn bg-blue-500 ">
+                  <Link to={`/dashboard/${user?._id}`} className="btn bg-blue-500 ">
                     <FaPaypal />
                   </Link>
                 </td>
